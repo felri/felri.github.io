@@ -3,10 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>FRCM - Technology Solutions</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Hero section */
+        .hero {
+            padding: 6rem 2rem 2rem;
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Services section */
+        .services {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            padding: 2rem;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Contact section */
+        .contact {
+            padding: 4rem 2rem;
+            background-color: #ecf0f1;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Button styles */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>Hosted on GitHub Pages!</p>
+    <header>
+        <div class="logo">FRCM</div>
+    </header>
+
+    <section class="hero">
+        <h1>Digital Solutions for Modern Business</h1>
+        <p>Custom software development and automation solutions</p>
+        <a href="#contact" class="cta-button">Get in Touch</a>
+    </section>
+
+    <section class="services">
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Web Development</h3>
+                <p>Custom website development tailored to your business needs</p>
+            </div>
+            <div class="service-card">
+                <h3>System Solutions</h3>
+                <p>Enterprise software and automation systems development</p>
+            </div>
+            <div class="service-card">
+                <h3>Chatbots & AI</h3>
+                <p>Smart chatbot solutions integrated with popular messaging platforms</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: contact@frcm.site</p>
+        <p>Address: RUA 22 QUADRA J9 LOTE 15
+            GOIANIA, GO 74120-130
+            Brasil</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 FELIPE RIBEIRO COSTA MELO DESENVOLVIMENTO DE SISTEMAS. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll for service cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.service-card').forEach((card) => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+
+        // Simple button animation
+        document.querySelector('.cta-button').addEventListener('mouseover', function() {
+            this.style.transform = 'scale(1.05)';
+        });
+
+        document.querySelector('.cta-button').addEventListener('mouseout', function() {
+            this.style.transform = 'scale(1)';
+        });
+    </script>
 </body>
 </html>
